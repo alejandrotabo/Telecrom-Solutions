@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear cuenta | TeleCrom Solutions</title>
+  <meta name="description" content="Crea tu cuenta de cliente en TeleCrom Solutions.">
+  <link rel="icon" type="image/png" href="../../public/assets/Logo1.png">
+  <link rel="stylesheet" href="../../public/css/styles.css">
+</head>
+<body class="login-page register-page">
+  <main class="login-shell">
+    <a class="login-brand" href="home.html" aria-label="Volver a TeleCrom Solutions">
+      <img src="../../public/assets/Logo1.png" alt="TeleCrom Solutions">
+      <span>TELE<span>CROM</span></span>
+    </a>
+
+    <section class="login-layout" aria-labelledby="register-title">
+      <div class="login-intro-panel">
+        <span class="section-label">Nuevo cliente</span>
+        <h1>Comienza a construir algo <span class="text-accent">mejor</span>.</h1>
+        <p>Crea tu cuenta para compartir tus necesidades, consultar proyectos y mantener todo tu trabajo con TeleCrom en un solo lugar.</p>
+        <a class="back-link" href="login.html">← Ya tengo una cuenta</a>
+      </div>
+
+      <div class="login-page-card register-card">
+        <h2 id="register-title">Crear cuenta</h2>
+        <p class="login-page-subtitle">Completa tus datos para registrarte como cliente.</p>
+
+        <form class="login-form register-form" method="post" action="register.php">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="register-name">Nombre completo</label>
+              <input type="text" name="name" id="register-name" placeholder="Tu nombre" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="register-phone">Teléfono</label>
+              <input type="tel" name="phone" id="register-phone" placeholder="+52 000 000 0000" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="register-email">Correo electrónico</label>
+            <input type="email" name="email" id="register-email" placeholder="tu@email.com" autocomplete="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="register-company">Empresa <span class="field-optional">Opcional</span></label>
+            <input type="text" name="company" id="register-company" placeholder="Nombre de tu empresa" autocomplete="organization">
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="register-password">Contraseña</label>
+              <input type="password" name="password" id="register-password" placeholder="Mínimo 8 caracteres" minlength="8" autocomplete="new-password" required>
+            </div>
+            <div class="form-group">
+              <label for="register-password-confirm">Confirmar contraseña</label>
+              <input type="password" name="password_confirmation" id="register-password-confirm" placeholder="Repite tu contraseña" minlength="8" autocomplete="new-password" required>
+            </div>
+          </div>
+
+          <label class="terms-check">
+            <input type="checkbox" name="terms" required>
+            <span>Acepto los términos y la política de privacidad.</span>
+          </label>
+
+          <p class="register-error" id="register-error" role="alert"></p>
+          <button type="submit" class="btn btn-primary login-submit">Crear mi cuenta</button>
+        </form>
+
+        <p class="auth-switch">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+        <p class="login-page-note">El registro real se procesará después mediante tu controlador MVC en PHP.</p>
+      </div>
+    </section>
+  </main>
+  <script src="../../app/controllers/register-controller.js?v=2"></script>
+</body>
+</html>

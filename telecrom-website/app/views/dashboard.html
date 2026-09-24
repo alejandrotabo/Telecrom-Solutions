@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | TeleCrom Solutions</title>
+  <meta name="description" content="Dashboard privado de TeleCrom Solutions.">
+  <link rel="icon" type="image/png" href="../../public/assets/Logo1.png">
+  <link rel="stylesheet" href="../../public/css/styles.css">
+</head>
+<body class="dashboard-page">
+  <header class="dashboard-header">
+    <a class="login-brand" href="#overview" data-dashboard-home aria-label="Ir al resumen del dashboard">
+      <img src="../../public/assets/Logo1.png" alt="TeleCrom Solutions">
+      <span>TELE<span>CROM</span></span>
+    </a>
+    <div class="dashboard-header-actions">
+      <span class="dashboard-role-badge" id="dashboard-role-badge">Cliente</span>
+      <a class="dashboard-logout" href="login.html">Cerrar sesión</a>
+    </div>
+  </header>
+
+  <main class="dashboard-shell">
+    <section class="dashboard-heading">
+      <div>
+        <span class="section-label" id="dashboard-eyebrow">Portal Cliente</span>
+        <h1 id="dashboard-title">Hola, cliente.</h1>
+        <p id="dashboard-subtitle">Aquí tienes una vista general de tus proyectos y solicitudes.</p>
+      </div>
+      <a class="btn btn-primary dashboard-primary-action" href="home.html#contact">Nuevo proyecto</a>
+    </section>
+
+    <!-- La vista solo define la estructura. dashboard-controller.js decide qué mostrar. -->
+    <nav class="dashboard-nav" aria-label="Secciones del dashboard" role="tablist">
+      <button class="dashboard-nav-link active" type="button" role="tab" aria-selected="true" data-dashboard-view="overview">Resumen</button>
+      <button class="dashboard-nav-link" type="button" role="tab" aria-selected="false" data-dashboard-view="products">Mis productos</button>
+      <button class="dashboard-nav-link" type="button" role="tab" aria-selected="false" data-dashboard-view="store">Tienda</button>
+      <button class="dashboard-nav-link" type="button" role="tab" aria-selected="false" data-dashboard-view="analytics">Estadísticas</button>
+      <button class="dashboard-nav-link" type="button" role="tab" aria-selected="false" data-dashboard-view="account">Mi cuenta</button>
+      <button class="dashboard-nav-link admin-only" type="button" role="tab" aria-selected="false" data-dashboard-view="manage">Administrar</button>
+    </nav>
+
+    <section class="dashboard-view active" data-dashboard-panel="overview" aria-label="Resumen">
+    <div class="dashboard-stats">
+      <article class="dashboard-stat-card">
+        <span>Proyectos activos</span>
+        <strong id="active-projects">02</strong>
+        <small>En seguimiento</small>
+      </article>
+      <article class="dashboard-stat-card">
+        <span>Solicitudes abiertas</span>
+        <strong id="open-requests">03</strong>
+        <small>Requieren atención</small>
+      </article>
+      <article class="dashboard-stat-card admin-only">
+        <span>Usuarios registrados</span>
+        <strong>18</strong>
+        <small>Clientes y equipo</small>
+      </article>
+      <article class="dashboard-stat-card admin-only">
+        <span>Ingresos del mes</span>
+        <strong>$24K</strong>
+        <small>Resumen operativo</small>
+      </article>
+    </div>
+
+    <div class="dashboard-content-grid">
+      <article class="dashboard-panel dashboard-projects-panel">
+        <div class="dashboard-panel-heading">
+          <div>
+            <span class="panel-kicker">Actividad</span>
+            <h2 id="projects-title">Mis proyectos</h2>
+          </div>
+          <button class="panel-link" type="button">Ver todos</button>
+        </div>
+        <div class="project-list" id="client-projects">
+          <div class="project-row"><span class="project-icon">◈</span><div><strong>Rediseño web corporativo</strong><small>En desarrollo</small></div><span class="status-chip status-progress">65%</span></div>
+          <div class="project-row"><span class="project-icon">⚡</span><div><strong>Automatización de leads</strong><small>En revisión</small></div><span class="status-chip status-review">Revisión</span></div>
+          <div class="project-row"><span class="project-icon">✦</span><div><strong>Identidad visual</strong><small>Próximo proyecto</small></div><span class="status-chip status-planned">Planificado</span></div>
+        </div>
+        <div class="project-list" id="admin-projects" hidden>
+          <div class="project-row"><span class="project-icon">◈</span><div><strong>Todos los proyectos</strong><small>18 cuentas activas</small></div><span class="status-chip status-progress">Gestionar</span></div>
+          <div class="project-row"><span class="project-icon">⚡</span><div><strong>Cola de solicitudes</strong><small>7 nuevas solicitudes</small></div><span class="status-chip status-review">Revisar</span></div>
+          <div class="project-row"><span class="project-icon">✦</span><div><strong>Entregas de esta semana</strong><small>4 entregables</small></div><span class="status-chip status-planned">Organizar</span></div>
+        </div>
+      </article>
+
+      <aside class="dashboard-panel dashboard-actions-panel">
+        <div class="dashboard-panel-heading">
+          <div>
+            <span class="panel-kicker">Accesos</span>
+            <h2>Acciones rápidas</h2>
+          </div>
+        </div>
+        <div class="dashboard-action-list" id="client-actions">
+          <a href="home.html#contact"><strong>Solicitar soporte</strong><span>Habla con tu equipo TeleCrom →</span></a>
+          <a href="home.html#contact"><strong>Nuevo servicio</strong><span>Cuéntanos qué quieres construir →</span></a>
+          <a href="home.html#contact"><strong>Ver contacto</strong><span>Encuentra nuestros canales →</span></a>
+        </div>
+        <div class="dashboard-action-list" id="admin-actions" hidden>
+          <a href="home.html#contact"><strong>Gestionar usuarios</strong><span>Clientes, permisos y accesos →</span></a>
+          <a href="home.html#contact"><strong>Revisar solicitudes</strong><span>Organiza nuevas oportunidades →</span></a>
+          <a href="home.html#contact"><strong>Configuración</strong><span>Preferencias del sistema →</span></a>
+        </div>
+      </aside>
+    </div>
+    </section>
+
+    <section class="dashboard-view" data-dashboard-panel="services" aria-labelledby="services-title" hidden>
+      <div class="dashboard-section-heading">
+        <div><span class="panel-kicker">Catálogo TeleCrom</span><h2 id="services-title">¿Qué quieres construir?</h2><p>Elige un servicio y prepararemos una propuesta para tu negocio.</p></div>
+      </div>
+      <div class="dashboard-service-grid">
+        <article class="dashboard-service-card"><span class="service-icon">◈</span><h3>Página web</h3><p>Una presencia digital clara, rápida y lista para crecer.</p><a class="btn btn-secondary service-request" href="home.html?service=Desarrollo%20web#contact">Solicitar servicio</a></article>
+        <article class="dashboard-service-card"><span class="service-icon">⚡</span><h3>Automatización</h3><p>Flujos inteligentes para ahorrar tiempo y reducir errores.</p><a class="btn btn-secondary service-request" href="home.html?service=Automatizaci%C3%B3n%20inteligente#contact">Solicitar servicio</a></article>
+        <article class="dashboard-service-card"><span class="service-icon">◉</span><h3>Ciberseguridad</h3><p>Protección, revisión de riesgos y mejores prácticas digitales.</p><a class="btn btn-secondary service-request" href="home.html?service=Ciberseguridad#contact">Solicitar servicio</a></article>
+        <article class="dashboard-service-card"><span class="service-icon">✦</span><h3>Branding</h3><p>Una identidad de marca consistente y fácil de recordar.</p><a class="btn btn-secondary service-request" href="home.html?service=Branding%20de%20marca#contact">Solicitar servicio</a></article>
+      </div>
+    </section>
+
+    <section class="dashboard-view" data-dashboard-panel="manage" aria-labelledby="manage-title" hidden>
+      <div class="dashboard-section-heading"><div><span class="panel-kicker">Control interno</span><h2 id="manage-title">Administrar operación</h2><p>Gestiona el trabajo de TeleCrom desde una vista central.</p></div><span class="permission-badge">Permisos elevados</span></div>
+      <div class="admin-management-grid">
+        <button type="button" class="management-card"><span class="management-icon">♙</span><strong>Usuarios y permisos</strong><small>Administra clientes, equipo y accesos.</small></button>
+        <button type="button" class="management-card"><span class="management-icon">◈</span><strong>Proyectos</strong><small>Asigna responsables, estados y fechas.</small></button>
+        <button type="button" class="management-card"><span class="management-icon">▣</span><strong>Solicitudes</strong><small>Revisa oportunidades y nuevos servicios.</small></button>
+        <button type="button" class="management-card"><span class="management-icon">⌁</span><strong>Reportes</strong><small>Consulta rendimiento e ingresos.</small></button>
+      </div>
+    </section>
+
+    <!-- Estos puntos de montaje reciben HTML generado por DashboardView. -->
+    <section class="dashboard-view" data-dashboard-panel="products" aria-labelledby="products-title" hidden><div id="products-mount"></div></section>
+    <section class="dashboard-view" data-dashboard-panel="store" aria-labelledby="store-title" hidden><div id="store-mount"></div></section>
+    <section class="dashboard-view" data-dashboard-panel="analytics" aria-labelledby="analytics-title" hidden><div id="analytics-mount"></div></section>
+    <section class="dashboard-view" data-dashboard-panel="account" aria-labelledby="account-title" hidden><div id="account-mount"></div></section>
+
+    <p class="dashboard-demo-note">Vista de demostración. La sesión, los permisos y los datos reales deberán validarse en el backend MVC.</p>
+  </main>
+  <!-- Orden MVC: modelo, vista y al final controlador. No requiere servidor para la demo. -->
+  <script src="../../app/models/dashboard-model.js?v=2"></script>
+  <script src="../../app/views/dashboard-view.js?v=2"></script>
+  <script src="../../app/controllers/dashboard-controller.js?v=2"></script>
+</body>
+</html>
