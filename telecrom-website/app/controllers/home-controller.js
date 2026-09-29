@@ -371,60 +371,198 @@ function initPortfolioModal() {
   const modal = document.getElementById('portfolio-modal');
   if (!modal) return;
 
-  const overlay = modal;
-  const closeBtn = modal.querySelector('.modal-close');
+  const overlay   = modal;
+  const closeBtn  = modal.querySelector('.modal-close');
   const modalTitle = modal.querySelector('.modal-header h3');
-  const modalDescription = modal.querySelector('.modal-description');
-  const modalTags = modal.querySelector('.modal-tags');
-  const modalTech = modal.querySelector('.modal-tech');
 
-  // Open modal
+  // Buscar vistas con document.querySelector para máxima robustez
+  const standardContent = document.querySelector('.modal-standard-content');
+  const liveContent     = document.querySelector('.modal-live-content');
+  const designContent   = document.querySelector('.modal-design-content');
+
+  if (!standardContent || !liveContent || !designContent) {
+    console.error('[Modal] Faltan vistas del modal', { standardContent, liveContent, designContent });
+    return;
+  }
+
+  // Muestra solo la vista indicada, oculta las demás con display y hidden
+  function showOnly(active) {
+    [standardContent, liveContent, designContent].forEach(el => {
+      el.style.display = 'none';
+      el.hidden = true;
+    });
+    active.style.display = '';
+    active.hidden = false;
+  }
+
+  // Elementos de cada vista
+  const standardTags        = standardContent.querySelector('.modal-tags');
+  const standardDescription = standardContent.querySelector('.modal-description');
+  const standardTech        = standardContent.querySelector('.modal-tech');
+
+  const liveTags        = liveContent.querySelector('.modal-tags');
+  const liveDescription = liveContent.querySelector('.modal-description');
+  const liveTech        = liveContent.querySelector('.modal-tech');
+  const liveIframe      = document.getElementById('modal-live-iframe');
+  const liveUrlEl       = document.getElementById('modal-live-url');
+
+  const designImg   = document.getElementById('modal-design-img');
+  const designDots  = document.getElementById('modal-design-dots');
+  const designList  = document.getElementById('modal-design-list');
+  const designTags  = designContent.querySelector('.modal-tags');
+  const designTools = designContent.querySelector('.modal-design-tools');
+  const designIntro = designContent.querySelector('.modal-design-intro');
+
+  function buildTags(container, tagEls) {
+    container.innerHTML = '';
+    tagEls.forEach(tag => {
+      const span = document.createElement('span');
+      span.className = 'portfolio-tag';
+      span.textContent = tag.textContent;
+      container.appendChild(span);
+    });
+  }
+
+  function buildTech(container, techs) {
+    container.innerHTML = '';
+    techs.forEach(tech => {
+      const span = document.createElement('span');
+      span.className = 'modal-tech-badge';
+      span.textContent = tech.trim();
+      container.appendChild(span);
+    });
+  }
+
+  // Mapeo de zona → posición % dentro de la imagen
+  const zonePositions = {
+    'top-center':   { top: '18%', left: '50%' },
+    'top':          { top: '10%', left: '68%' },
+    'center':       { top: '50%', left: '45%' },
+    'bottom-right': { top: '62%', left: '72%' },
+    'bottom-center':{ top: '84%', left: '50%' },
+    'bottom':       { top: '88%', left: '50%' },
+    'background':   { top: '32%', left: '12%' },
+  };
+
+  function buildDesignView(imgSrc, tags, techs, desc, points) {
+    designImg.src = imgSrc;
+    designImg.alt = modalTitle.textContent;
+    buildTags(designTags, tags);
+    buildTech(designTools, techs);
+    designIntro.textContent = desc;
+
+    designDots.innerHTML = '';
+    designList.innerHTML = '';
+
+    points.forEach((p, i) => {
+      const pos = zonePositions[p.zona] || { top: `${15 + i * 16}%`, left: '50%' };
+
+      const dot = document.createElement('button');
+      dot.className = 'design-dot';
+      dot.setAttribute('data-index', String(i));
+      dot.setAttribute('data-label', p.label);
+      dot.setAttribute('aria-label', `Punto ${p.n}: ${p.label}`);
+      dot.style.top  = pos.top;
+      dot.style.left = pos.left;
+      dot.innerHTML  = `<span class="design-dot-num">${p.n}</span>`;
+      designDots.appendChild(dot);
+
+      const li = document.createElement('li');
+      li.className = 'design-analysis-item';
+      li.setAttribute('data-index', String(i));
+      li.innerHTML = `
+        <div class="design-analysis-header">
+          <span class="design-analysis-num">${p.n}</span>
+          <strong class="design-analysis-label">${p.label}</strong>
+        </div>
+        <p class="design-analysis-desc">${p.desc}</p>
+      `;
+      designList.appendChild(li);
+    });
+
+    // Interacción bidireccional dot ↔ item
+    designDots.querySelectorAll('.design-dot').forEach(dot => {
+      const idx  = Number(dot.dataset.index);
+      const item = designList.querySelectorAll('.design-analysis-item')[idx];
+
+      function activate() {
+        designDots.querySelectorAll('.design-dot').forEach(d => d.classList.remove('active'));
+        designList.querySelectorAll('.design-analysis-item').forEach(it => it.classList.remove('active'));
+        dot.classList.add('active');
+        item?.classList.add('active');
+      }
+
+      dot.addEventListener('mouseenter', () => { dot.classList.add('active'); item?.classList.add('active'); });
+      dot.addEventListener('mouseleave', () => { dot.classList.remove('active'); item?.classList.remove('active'); });
+      dot.addEventListener('click', (e) => { e.stopPropagation(); activate(); item?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+
+      item?.addEventListener('mouseenter', () => dot.classList.add('active'));
+      item?.addEventListener('mouseleave', () => dot.classList.remove('active'));
+      item?.addEventListener('click', () => {
+        activate();
+        const modalBody = modal.querySelector('.modal-body');
+        if (modalBody) modalBody.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+  }
+
+  // Abrir modal
   document.querySelectorAll('.portfolio-item').forEach(item => {
     item.addEventListener('click', () => {
-      const title = item.querySelector('.portfolio-info h3').textContent;
-      const desc = item.querySelector('.portfolio-info p').textContent;
-      const tags = item.querySelectorAll('.portfolio-tag');
-      const techs = item.getAttribute('data-tech')?.split(',') || [];
+      const title       = item.querySelector('.portfolio-info h3').textContent;
+      const desc        = item.getAttribute('data-description') || item.querySelector('.portfolio-info p').textContent;
+      const tags        = item.querySelectorAll('.portfolio-tag');
+      const techs       = item.getAttribute('data-tech')?.split(',') || [];
+      const liveUrl_val = item.getAttribute('data-live');
+      const designSrc   = item.getAttribute('data-design');
+      const pointsRaw   = item.getAttribute('data-points');
 
       modalTitle.textContent = title;
-      modalDescription.textContent = desc;
+      modal.classList.remove('modal--live', 'modal--design');
 
-      // Clear and rebuild tags
-      modalTags.innerHTML = '';
-      tags.forEach(tag => {
-        const span = document.createElement('span');
-        span.className = 'portfolio-tag';
-        span.textContent = tag.textContent;
-        modalTags.appendChild(span);
-      });
+      if (designSrc && pointsRaw) {
+        let points = [];
+        try { points = JSON.parse(pointsRaw); } catch(e) { console.error('[Modal] JSON inválido:', e); }
+        showOnly(designContent);
+        modal.classList.add('modal--design');
+        buildDesignView(designSrc, tags, techs, desc, points);
 
-      // Clear and rebuild tech badges
-      modalTech.innerHTML = '';
-      techs.forEach(tech => {
-        const span = document.createElement('span');
-        span.className = 'modal-tech-badge';
-        span.textContent = tech.trim();
-        modalTech.appendChild(span);
-      });
+      } else if (liveUrl_val) {
+        showOnly(liveContent);
+        modal.classList.add('modal--live');
+        buildTags(liveTags, tags);
+        liveDescription.textContent = desc;
+        buildTech(liveTech, techs);
+        liveUrlEl.textContent = liveUrl_val.split('/').pop() || 'preview';
+        liveIframe.src = liveUrl_val;
+
+      } else {
+        showOnly(standardContent);
+        buildTags(standardTags, tags);
+        standardDescription.textContent = desc;
+        buildTech(standardTech, techs);
+      }
 
       overlay.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
   });
 
-  // Close modal
+  // Cerrar modal
   function closeModal() {
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+    liveIframe.src = '';
+    modal.classList.remove('modal--live', 'modal--design');
+    [standardContent, liveContent, designContent].forEach(el => {
+      el.style.display = 'none';
+      el.hidden = true;
+    });
   }
 
   closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 }
 
 /* =============================================

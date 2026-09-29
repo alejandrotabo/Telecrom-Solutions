@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruleta original | Gamembers</title>
+  <link rel="stylesheet" href="css/ax.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="css/gamembers-redesign.css">
+</head>
+
+<body class="roulette-page" data-gm-original-game>
+  <h1 class="roulette-title">Ruleta original de tokens</h1>
+  <p class="roulette-subtitle">Un giro diario para sumar tokens virtuales a tu perfil local.</p>
+<section class="gm-original-lock" data-gm-original-lock>
+	<p class="gm-eyebrow">Acceso para perfiles de prueba</p>
+	<h2>Inicia sesión para jugar</h2>
+	<p>El juego original requiere un perfil local. Los tokens se guardan únicamente en este navegador y no tienen valor monetario.</p>
+	<a class="gm-small-button" href="login.html">Iniciar sesión</a>
+	<a class="gm-trial-login" href="index.html#juegos-prueba">Ver los juegos de prueba</a>
+</section>
+<div class="gm-original-content" data-gm-original-content hidden>
+<div class="gm-gamebar">
+  <a href="index.html#mi-ahorro"><i class="fa fa-arrow-left" aria-hidden="true"></i> Mi ahorro</a>
+  <span>Jugador: <strong data-gm-player-name></strong></span>
+  <span class="gm-token-balance"><i class="fa fa-diamond" aria-hidden="true"></i> <span data-gm-tokens>0</span> tokens</span>
+  <button class="gm-small-button" type="button" data-gm-logout>Cerrar sesión</button>
+</div>
+<div class="roulette">
+  <div class="spinner"></div>
+  <div class="shadow"></div>
+  <div class="markers">
+    <div class="triangle">
+      
+    </div>
+  </div>
+  <button class="button" type="button" data-gm-spin aria-describedby="gm-spin-status">
+    <span>Girar</span>
+  </button>
+</div>
+<p class="gm-spin-status" id="gm-spin-status" data-gm-spin-status aria-live="polite">Un giro diario. Cada premio suma tokens virtuales.</p>
+<div class="roulette-return">
+  <div class="ax" style="margin:0 auto">
+    <a href="index.html">Regresar</a>
+  </div>
+</div>
+</div>
+<!-- Escript -->
+<script src="js/gamembers.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.0/velocity.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

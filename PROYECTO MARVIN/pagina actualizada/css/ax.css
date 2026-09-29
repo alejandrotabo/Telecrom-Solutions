@@ -1,0 +1,17 @@
+
+.ax{
+    background-color: rgba(7, 202, 89, 0.555);
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a{
+    text-decoration: none;
+    font-family: Arial;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #084621;
+}

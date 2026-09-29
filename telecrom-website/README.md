@@ -29,10 +29,11 @@ Por ejemplo, en el dashboard:
 
 ## Vistas disponibles
 
-- `app/views/home.html`: pagina publica.
-- `app/views/login.html`: inicio de sesion.
+- `app/views/home.html`: pagina publica principal (servicios, planes, destacados).
+- `app/views/portfolio.html`: catalogo completo de proyectos (automatizaciones, web demo interactiva y analisis visual de diseno).
+- `app/views/login.html`: inicio de sesion (con accesos rapidos de demo).
 - `app/views/register.html`: registro de clientes.
-- `app/views/dashboard.html`: portal del cliente.
+- `app/views/dashboard.html`: portal del cliente y administrador.
 
 La persistencia actual usa `localStorage` para demostracion. Cuando se conecte PHP/MVC, las operaciones del modelo deben reemplazarse por llamadas al backend sin cambiar la vista.
 

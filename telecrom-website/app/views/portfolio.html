@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio — TeleCrom Solutions</title>
+  <meta name="description" content="Portafolio completo de TeleCrom Solutions: automatizaciones con n8n, prototipos web, diseño gráfico y más.">
+  <link rel="icon" type="image/png" href="../../public/assets/Logo1.png">
+  <link rel="stylesheet" href="../../public/css/styles.css?v=9">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="home.html" class="navbar-brand">
+        <img src="../../public/assets/Logo1.png" alt="TeleCrom Solutions Logo" id="nav-logo">
+        <span>TELE<span class="brand-highlight">CROM</span></span>
+      </a>
+      <div class="navbar-links" id="nav-links">
+        <a href="home.html#about">Nosotros</a>
+        <a href="home.html#services">Servicios</a>
+        <a href="home.html#packages">Soluciones</a>
+        <a href="portfolio.html" class="nav-active">Portafolio</a>
+        <a href="home.html#process">Proceso</a>
+        <a href="home.html#contact" class="navbar-cta">
+          <span class="btn btn-primary btn-sm">Contactar</span>
+        </a>
+      </div>
+      <a class="nav-login" href="login.html">Iniciar sesión</a>
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO PORTAFOLIO ========== -->
+  <section class="portfolio-page-hero">
+    <div class="container">
+      <div class="portfolio-page-hero-content reveal">
+        <span class="section-label">🖼️ Nuestro Trabajo</span>
+        <h1>Portafolio</h1>
+        <p>Automatizaciones funcionales, prototipos web y diseño gráfico — proyectos reales construidos con calidad técnica y cercanía.</p>
+        <a href="home.html#contact" class="btn btn-primary" style="margin-top: 8px;">Cotizar mi proyecto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GRID PORTAFOLIO ========== -->
+  <section class="section portfolio portfolio-page" id="portfolio">
+    <div class="container">
+
+      <div class="portfolio-filters reveal">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="marketing">Marketing</button>
+        <button class="filter-btn" data-filter="ventas">Ventas</button>
+        <button class="filter-btn" data-filter="operaciones">Operaciones</button>
+        <button class="filter-btn" data-filter="data">Data</button>
+        <button class="filter-btn" data-filter="ai">AI / Bots</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn filter-btn-diseno" data-filter="diseno">Diseño</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- Item 1 -->
+        <div class="portfolio-item reveal reveal-delay-1" data-category="marketing" data-tech="n8n, Gmail, Slack, Google Sheets"
+             data-description="Workflow completo de email marketing con segmentación automática de audiencias, calificación de leads con IA (Gemini) y notificaciones en tiempo real al equipo comercial vía Slack.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">⚡ Workflow n8n</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">📧</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">⚙️</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">📊</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Marketing</span>
+              <span class="portfolio-tag">Email</span>
+            </div>
+            <h3>Email Marketing Automatizado</h3>
+            <p>Segmentación automática de leads, calificación con IA y notificaciones al equipo — sin intervención manual.</p>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="portfolio-item reveal reveal-delay-2" data-category="ventas" data-tech="n8n, HubSpot, WhatsApp Business API, Stripe"
+             data-description="Pipeline de ventas automatizado de punta a punta: desde la captura del lead hasta la firma del contrato. Seguimiento automático por WhatsApp, CRM sincronizado y cotizaciones generadas sin intervención del equipo.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">⚡ Workflow n8n</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">💬</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">🔄</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">💰</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Ventas</span>
+              <span class="portfolio-tag">CRM</span>
+            </div>
+            <h3>Pipeline de Ventas Inteligente</h3>
+            <p>Del lead a la venta cerrada sin intervención manual — CRM, WhatsApp y cotizaciones automáticas integrados.</p>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="portfolio-item reveal reveal-delay-3" data-category="ai" data-tech="n8n, Gemini API, Telegram, Webhook"
+             data-description="Bot de atención al cliente construido con n8n y Gemini API. Responde preguntas frecuentes, escala casos complejos al equipo y registra cada conversación automáticamente. Demo funcional en Telegram, versión de producción en WhatsApp Business.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">🤖 Agente IA</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">🤖</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">🧠</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">💬</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">AI</span>
+              <span class="portfolio-tag">Chatbot</span>
+            </div>
+            <h3>Chatbot con IA Generativa</h3>
+            <p>Atención al cliente automatizada con Gemini: responde, escala y registra cada conversación sin intervención.</p>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="portfolio-item reveal reveal-delay-1" data-category="operaciones" data-tech="n8n, Google Sheets, Notion, Slack"
+             data-description="Sincronización automática entre herramientas de gestión de proyectos. Crea tareas en Notion desde Google Sheets, notifica al equipo en Slack y actualiza el estado sin intervención manual.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">⚡ Workflow n8n</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">📋</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">🔄</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">✅</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Operaciones</span>
+              <span class="portfolio-tag">Gestión</span>
+            </div>
+            <h3>Gestión de Proyectos Automatizada</h3>
+            <p>Google Sheets, Notion y Slack sincronizados automáticamente — sin copiar y pegar entre herramientas.</p>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="portfolio-item reveal reveal-delay-2" data-category="data" data-tech="n8n, PostgreSQL, Google Analytics, API REST"
+             data-description="Pipeline de datos automatizado que consolida métricas de múltiples fuentes, genera un resumen ejecutivo con IA y lo envía al equipo cada lunes. Sin dashboards que nadie abre: la información llega directa al correo.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">📊 Data Pipeline</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">🗄️</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">📈</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">📧</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Data</span>
+              <span class="portfolio-tag">Analytics</span>
+            </div>
+            <h3>Reportes Automáticos con IA</h3>
+            <p>Métricas de múltiples fuentes consolidadas y resumidas por IA — entregadas cada semana directo al correo.</p>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="portfolio-item reveal reveal-delay-3" data-category="marketing" data-tech="n8n, Instagram API, Buffer, Gemini API"
+             data-description="Publicación y programación automática en redes sociales. El contenido se toma de una hoja de cálculo, se genera la imagen con IA y se publica en el horario óptimo — sin abrir Buffer ni Instagram manualmente.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge">📱 Social Media</span>
+            <div class="portfolio-thumbnail-content">
+              <div class="workflow-visual">
+                <div class="workflow-node node-trigger">📸</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-process">🎨</div>
+                <div class="workflow-connector"></div>
+                <div class="workflow-node node-output">📱</div>
+              </div>
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Marketing</span>
+              <span class="portfolio-tag">Social Media</span>
+            </div>
+            <h3>Social Media Autopilot</h3>
+            <p>De la hoja de cálculo a Instagram automáticamente — generación de imagen con IA y publicación en horario óptimo.</p>
+          </div>
+        </div>
+
+        <!-- Item 7 — Proyecto Marvin: Gamembers -->
+        <div class="portfolio-item portfolio-item--featured reveal reveal-delay-1"
+             data-category="web"
+             data-tech="HTML, CSS, JavaScript, Bootstrap, PHP"
+             data-live="../../proyecto-marvin/index.html"
+             data-description="Plataforma web para aprender a ahorrar jugando. Incluye cuatro minijuegos de educación financiera (quiz, presupuesto, hábitos, gastos hormiga), registro de metas personales con progreso visual, ruleta de tokens y sistema de login. Construida con Bootstrap, JavaScript vanilla y PHP.">
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge badge-web">🌐 Prototipo Web</span>
+            <div class="portfolio-thumbnail-content portfolio-thumbnail-content--gamembers">
+              <div class="gamembers-preview">
+                <span class="gamembers-logo-text">GAME<span>MBERS</span></span>
+                <div class="gamembers-icons">
+                  <span>🎮</span><span>🪙</span><span>📈</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-overlay portfolio-overlay--telecom">
+              <span class="portfolio-badge-live">● LIVE DEMO</span>
+              <span class="portfolio-overlay-btn">Ver Demo</span>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Ahorro</span>
+              <span class="portfolio-tag">Gamificación</span>
+              <span class="portfolio-tag">Educación Financiera</span>
+            </div>
+            <h3>Gamembers — Ahorra Jugando</h3>
+            <p>Plataforma web para aprender a ahorrar a través de juegos: quiz financiero, ruleta de tokens, metas de ahorro y más.</p>
+          </div>
+        </div>
+
+        <!-- Item 8 — Diseño Gráfico: For My Reals -->
+        <div class="portfolio-item portfolio-item--design reveal reveal-delay-2"
+             data-category="diseno"
+             data-tech="Photoshop, Illustrator, Diseño Publicitario"
+             data-design="../../public/assets/diseno-grafico/for-my-reals.jpg"
+             data-description="Flyer promocional para Sebas Dee Jay — pieza musical con identidad visual neón sobre fondo oscuro, tipografía script iluminada y composición fotográfica para redes sociales."
+             data-points='[{"n": 1, "zona": "top-center", "label": "Tipografía principal", "desc": "For My Reals en script manual con efecto neón azul. Es el elemento de mayor jerarquía visual: tamaño, brillo y posición central garantizan que sea lo primero que el ojo lee."}, {"n": 2, "zona": "center", "label": "Sujeto fotográfico", "desc": "La figura del DJ ocupa el centro geométrico del flyer. La postura de manos hacia la cámara crea profundidad y dirige la atención hacia el nombre del artista."}, {"n": 3, "zona": "bottom-right", "label": "Identidad del artista", "desc": "Firma caligráfica de Sebas Dee Jay refuerza el branding personal del artista. Su tamaño secundario mantiene la jerarquía sin competir con el título principal."}, {"n": 4, "zona": "bottom-center", "label": "Información de contacto", "desc": "Bloque de datos (SoundCloud, Instagram, WhatsApp) en tipografía sans-serif clara. Posición inferior permite leerlo después de captar la atención con los elementos superiores."}, {"n": 5, "zona": "background", "label": "Paleta y atmósfera", "desc": "Fondo oscuro con destellos azul cyan crean profundidad. Los elementos geométricos laterales enmarcan la composición sin distraer del contenido principal."}]'>
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge badge-design">🎨 Flyer Musical</span>
+            <div class="portfolio-thumbnail-content portfolio-thumbnail-content--image"
+                 style="background-image: url('../../public/assets/diseno-grafico/for-my-reals.jpg')">
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Diseño Gráfico</span>
+              <span class="portfolio-tag">Flyer Musical</span>
+            </div>
+            <h3>For My Reals — Sebas Dee Jay</h3>
+            <p>Flyer promocional con tipografía neón, composición fotográfica y paleta azul para contenido musical en redes sociales.</p>
+          </div>
+        </div>
+
+        <!-- Item 9 — Diseño Gráfico: Salsatón 3 -->
+        <div class="portfolio-item portfolio-item--design reveal reveal-delay-3"
+             data-category="diseno"
+             data-tech="Photoshop, Illustrator, Diseño Publicitario"
+             data-design="../../public/assets/diseno-grafico/salsaton-3.jpg"
+             data-description="Flyer para el evento Salsatón en el Plan 3.0 — diseñado por Alejandro Taborda. Composición con múltiples artistas, tipografía cromada de gran escala, efectos de luz morada y detalle de logotipos de los artistas invitados."
+             data-points='[{"n": 1, "zona": "top-center", "label": "Headline del evento", "desc": "Salsatón en el Plan 3.0 en tipografía cromada de gran escala domina la mitad inferior. El tamaño masivo y el acabado metálico lo hacen inconfundible desde el primer vistazo."}, {"n": 2, "zona": "top", "label": "Datos esenciales del evento", "desc": "Fecha (Octubre 03) y hora (Open 10PM) posicionados en la zona superior con alto contraste. Se leen antes que cualquier otro texto al seguir el flujo natural ojo-arriba."}, {"n": 3, "zona": "center", "label": "Composición de artistas", "desc": "Siete figuras organizadas en jerarquía piramidal: el artista principal al centro y más grande, los secundarios flanqueando en tamaño decreciente. Crea profundidad y comunica el lineup de un vistazo."}, {"n": 4, "zona": "bottom", "label": "Logos y sponsors", "desc": "Franja inferior con logos de artistas y marcas patrocinadoras. Tipografía uniforme y tamaño reducido los mantiene como información de soporte sin competir con el headline."}, {"n": 5, "zona": "background", "label": "Atmósfera cromática", "desc": "Fondo con graffiti desaturado e iluminación violeta lateral crea ambiente urbano. El desenfoque suave evita que compita con los elementos en primer plano."}]'>
+          <div class="portfolio-thumbnail">
+            <span class="portfolio-card-badge badge-design">🎨 Evento</span>
+            <div class="portfolio-thumbnail-content portfolio-thumbnail-content--image"
+                 style="background-image: url('../../public/assets/diseno-grafico/salsaton-3.jpg')">
+            </div>
+            <div class="portfolio-overlay"><span class="portfolio-overlay-btn">Ver Detalles</span></div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Diseño Publicitario</span>
+              <span class="portfolio-tag">Evento</span>
+            </div>
+            <h3>Salsatón en el Plan 3.0</h3>
+            <p>Flyer de evento con composición multipersona, tipografía cromada a gran escala y paleta violeta para evento de música y entretenimiento.</p>
+          </div>
+        </div>
+
+      </div><!-- /portfolio-grid -->
+
+      <div class="portfolio-cta-bar reveal" style="text-align:center; margin-top: 56px; padding: 40px 0 0; border-top: 1px solid var(--border-subtle);">
+        <h3 style="color: var(--white-soft); margin-bottom: 10px;">¿Tienes un proyecto en mente?</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Cuéntanos qué necesitas — empezamos con una demo gratuita.</p>
+        <a href="home.html#contact" class="btn btn-primary">Solicitar cotización</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER MÍNIMO ========== -->
+  <footer style="padding: 32px 0; background: var(--bg-secondary); border-top: 1px solid var(--border-subtle);">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <a href="home.html" class="navbar-brand" style="text-decoration:none;">
+        <img src="../../public/assets/Logo1.png" alt="TeleCrom" style="height:28px;">
+        <span style="font-weight:800; letter-spacing:0.05em;">TELE<span style="color:var(--accent);">CROM</span></span>
+      </a>
+      <p style="color: var(--text-muted); font-size: 0.8rem; margin:0;">© 2026 TeleCrom Solutions. Todos los derechos reservados.</p>
+      <a href="home.html" class="btn btn-secondary btn-sm">← Volver al inicio</a>
+    </div>
+  </footer>
+
+  <!-- ========== PORTFOLIO MODAL ========== -->
+  <div class="modal-overlay" id="portfolio-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Detalle del Proyecto</h3>
+        <button class="modal-close" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-standard-content">
+          <div class="modal-tags"></div>
+          <p class="modal-description"></p>
+          <h4 style="color: var(--white-soft); margin-bottom: 12px; font-family: var(--font-display);">Tecnologías utilizadas</h4>
+          <div class="modal-tech"></div>
+        </div>
+        <div class="modal-live-content" hidden>
+          <div class="modal-live-header">
+            <div class="modal-tags"></div>
+            <p class="modal-description"></p>
+            <div class="modal-live-tech-row">
+              <span class="modal-live-label">Stack:</span>
+              <div class="modal-tech"></div>
+            </div>
+          </div>
+          <div class="modal-live-preview">
+            <div class="modal-live-bar">
+              <span class="modal-live-dot"></span>
+              <span class="modal-live-dot"></span>
+              <span class="modal-live-dot"></span>
+              <span class="modal-live-url" id="modal-live-url"></span>
+              <span class="modal-live-badge">● LIVE PREVIEW</span>
+            </div>
+            <iframe id="modal-live-iframe" class="modal-live-iframe" src="" title="Demo en vivo" loading="lazy"
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+          </div>
+        </div>
+        <div class="modal-design-content" hidden>
+          <div class="modal-design-layout">
+            <div class="modal-design-image-wrap">
+              <img id="modal-design-img" class="modal-design-img" src="" alt="Vista del diseño" />
+              <div id="modal-design-dots" class="modal-design-dots"></div>
+            </div>
+            <div class="modal-design-analysis">
+              <div class="modal-design-meta">
+                <div class="modal-tags"></div>
+                <div class="modal-design-tools"></div>
+              </div>
+              <p class="modal-design-intro"></p>
+              <ol class="modal-design-list" id="modal-design-list"></ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../app/controllers/portfolio-controller.js?v=2"></script>
+</body>
+</html>

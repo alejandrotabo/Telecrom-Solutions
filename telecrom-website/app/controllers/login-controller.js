@@ -10,12 +10,50 @@ document.addEventListener('DOMContentLoaded', () => {
     error.classList.add('show', 'success-message');
   }
 
+  // Sembrar cuentas demo si no existen aún en localStorage
+  let accounts = JSON.parse(localStorage.getItem(accountStorageKey) || '[]');
+  if (!accounts.length) {
+    accounts = [
+      { name: 'Alejandro Taborda', email: 'cliente@telecrom.com', password: '123', role: 'client', company: 'TeleCrom Client' },
+      { name: 'Administrador TeleCrom', email: 'admin@telecrom.com', password: '123', role: 'admin', company: 'TeleCrom Solutions' }
+    ];
+    localStorage.setItem(accountStorageKey, JSON.stringify(accounts));
+  }
+
+  function setRole(role) {
+    roleInput.value = role;
+    roleOptions.forEach(item => item.classList.toggle('active', item.dataset.role === role));
+  }
+
   roleOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      roleInput.value = option.dataset.role;
-      roleOptions.forEach(item => item.classList.toggle('active', item === option));
-    });
+    option.addEventListener('click', () => setRole(option.dataset.role));
   });
+
+  // Botones de demostración rápida
+  const btnDemoClient = document.getElementById('btn-demo-client');
+  const btnDemoAdmin  = document.getElementById('btn-demo-admin');
+  const emailInput    = document.getElementById('login-email');
+  const passwordInput = document.getElementById('login-password');
+
+  if (btnDemoClient) {
+    btnDemoClient.addEventListener('click', () => {
+      setRole('client');
+      emailInput.value = 'cliente@telecrom.com';
+      passwordInput.value = '123';
+      error.textContent = 'Credenciales demo cargadas (Cliente). Presiona Entrar o haz submit.';
+      error.classList.add('show', 'success-message');
+    });
+  }
+
+  if (btnDemoAdmin) {
+    btnDemoAdmin.addEventListener('click', () => {
+      setRole('admin');
+      emailInput.value = 'admin@telecrom.com';
+      passwordInput.value = '123';
+      error.textContent = 'Credenciales demo cargadas (Admin). Presiona Entrar o haz submit.';
+      error.classList.add('show', 'success-message');
+    });
+  }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
